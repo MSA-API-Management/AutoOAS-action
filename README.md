@@ -1,4 +1,4 @@
-# Usage
+# GitHub Action usage
 Example for a job that uses the oas-gen action:
 ```yaml
 jobs:
@@ -11,5 +11,11 @@ jobs:
         with: 
           mvn_src_path: ${{github.workspace}} # Path to the directory of the pom.xml file
 ``` 
-    
-          
+# GitLab Configuration usage
+Link the GitLab configuration file in your `.gitlab-ci.yml`:
+```yaml
+include:
+  - remote: 'https://github.com/API-Evolution-Management/oas-gen/blob/6a2dd57a0495f92d147bd1b3eb1832383971fa1e/oas-gen.gitlab-ci.yml'
+    inputs:
+      mvn_src_dir: '.' # Relative path to the directory of the pom.xml file from the projects root directory
+```
