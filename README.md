@@ -15,7 +15,7 @@ jobs:
 Link the GitLab configuration file in your `.gitlab-ci.yml`:
 ```yaml
 include:
-  - remote: 'https://github.com/API-Evolution-Management/oas-gen/blob/6a2dd57a0495f92d147bd1b3eb1832383971fa1e/oas-gen.gitlab-ci.yml'
+  - remote: <link to oas-gen.gitlab-ci.yml>
     inputs:
       mvn_src_dir: '.' # Relative path to the directory of the pom.xml file from the projects root directory
 ```
