@@ -16,5 +16,5 @@ runs:
       - name: 'Upload artifact'
         uses: actions/upload-artifact@v4
         with:
-          name: oas_default.json
-          path: ${{inputs.mvn_src_path}}/target/docker/out/oas_default.json
+          name: 'OpenAPI specifications'
+          path: ${{inputs.mvn_src_path}}/target/docker/out/oas*
