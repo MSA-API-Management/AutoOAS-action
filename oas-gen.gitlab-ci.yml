@@ -12,7 +12,7 @@ oas-gen:
     name: alexx882/oas-gen:1.0
     entrypoint: [""]
   script: 
-    - java -jar /app/oas-gen.jar $[[ inputs.mvn_src_dir ]] ./oas
+    - java -jar /app/oas-gen.jar $[[ inputs.mvn_src_dir ]] autooas/oas
   artifacts:
     paths:
-      - "./oas_default.json"
+      - "autooas/oas*"
