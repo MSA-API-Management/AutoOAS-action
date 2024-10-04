@@ -11,10 +11,10 @@ runs:
   using: "composite"
   steps:
       - name: 'Run OAS-gen tool on MVN src folder'
-        run: docker run -v ${{inputs.mvn_src_path}}:/project alexx882/oas-gen:1.0 /project /project/target/docker/out/oas
+        run: docker run -v ${{inputs.mvn_src_path}}:/project alexx882/oas-gen:1.0 /project /project/autooas/oas
         shell: bash
       - name: 'Upload artifact'
         uses: actions/upload-artifact@v4
         with:
           name: 'OpenAPI specifications'
-          path: ${{inputs.mvn_src_path}}/target/docker/out/oas*
+          path: ${{inputs.mvn_src_path}}/autooas/oas*
