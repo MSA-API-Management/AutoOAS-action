@@ -17,5 +17,5 @@ Link the GitLab configuration file in your `.gitlab-ci.yml`:
 include:
   - remote: <link to oas-gen.gitlab-ci.yml>
     inputs:
-      mvn_src_dir: '.' # Relative path to the directory of the pom.xml file from the projects root directory
+      mvn_src_dir: '.' # Relative path to the directory of the pom.xml file from the project's root directory
 ```
