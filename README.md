@@ -1,16 +1,19 @@
 # GitHub Action usage
-Example for a job that uses the oas-gen action:
+The GitHub Action requires the following inputs:
 ```yaml
-jobs:
-  oas-gen:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4 # Use checkout action to fetch project files
-      - id: oas-gen
-        uses: API-Evolution-Management/AutoOAS-ci@v1
-        with: 
-          mvn_src_path: ${{github.workspace}} # Path to the directory of the pom.xml file
-``` 
+  - uses: API-Evolution-Management/AutoOAS-ci@v1
+    with:
+      # Path to the directory of the pom.xml file
+      mvn_src_path: 
+```
+The output of the action is stored in the summary of the triggered workflow as an artifact.
+
+## Pitfalls
+The AutoOAS action requires the project's source to be loaded inside the runner at an earlier step. For this, the [checkout](https://github.com/actions/checkout) action can be used.
+
+## Example
+An example project with a configured workflow can be found [here](https://github.com/API-Evolution-Management/AutoOAS-ci-example).
+
 # GitLab Configuration usage
 Link the GitLab configuration file in your `.gitlab-ci.yml`:
 ```yaml
