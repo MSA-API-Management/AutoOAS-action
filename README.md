@@ -18,7 +18,7 @@ An example project with a configured workflow can be found [here](https://github
 Link the GitLab configuration file in your `.gitlab-ci.yml`:
 ```yaml
 include:
-  - remote: <link to AutoOAS-ci.gitlab-ci.yml>
+  - remote: 'https://raw.githubusercontent.com/API-Evolution-Management/AutoOAS-ci/refs/heads/main/AutoOAS-ci.gitlab-ci.yml'
     inputs:
       mvn_src_dir: '.' # Relative path to the directory of the pom.xml file from the project's root directory
 ```
