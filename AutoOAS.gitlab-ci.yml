@@ -1,0 +1,30 @@
+spec:
+  inputs:
+    mvn_src_dir:
+    ref:
+      type: string 
+      default: main
+    job_name:
+      type: string
+      default: oas
+---
+
+stages:
+  - auto-oas
+
+"auto-oas-$[[inputs.job_name]]":
+  stage: auto-oas
+  image: 
+    name: alexx882/auto-oas:1.0
+    entrypoint: [""]
+  before_script:
+    - apt update
+    - apt install git -y
+  script: 
+    - git fetch
+    - git checkout $[[inputs.ref]]
+    - java -jar /app/auto-oas.jar $[[ inputs.mvn_src_dir ]] autooas-$[[inputs.ref]]/oas
+  artifacts:
+    name: "$[[inputs.ref]]_oas"
+    paths:
+      - "autooas-$[[inputs.ref]]/oas*"
