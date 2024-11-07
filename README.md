@@ -1,5 +1,5 @@
 # AutoOAS
-AutoOAS is as static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot source code.
+AutoOAS is as static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot source code. The approach is available as a [Docker image](https://hub.docker.com/repository/docker/alexx882/auto-oas/general).
 
 ## GitHub Action usage
 The GitHub Action requires the following inputs:
