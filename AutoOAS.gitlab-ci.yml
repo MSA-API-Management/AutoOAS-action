@@ -6,7 +6,7 @@ spec:
       default: main
     job_name:
       type: string
-      default: oas
+      default: auto-oas
 ---
 
 stages:
