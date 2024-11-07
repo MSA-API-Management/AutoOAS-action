@@ -1,4 +1,4 @@
-name: 'OAS-gen Action'
+name: 'AutoOAS Action'
 description: 'Generates an OpenAPI specification of a Spring project and uploads the specification as a job artifact'
 
 inputs:
