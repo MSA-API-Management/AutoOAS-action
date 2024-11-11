@@ -27,5 +27,5 @@ Link the GitLab configuration file in the `.gitlab-ci.yml`:
 include:
   - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1/AutoOAS-ci.gitlab-ci.yml'
     inputs:
-      mvn_src_dir: '.' # Relative path to the directory of the pom.xml file from the project's root directory
+      source_dir: '.' # Source directory
 ```
