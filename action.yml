@@ -2,22 +2,25 @@ name: 'AutoOAS Action'
 description: 'Generates an OpenAPI specification of a Spring project and uploads the specification as a job artifact'
 
 inputs:
-  mvn_src_path:
-    description: 'Path to the Maven directory'
+  source_dir:
+    description: 'Path to the source directory'
     required: true
     default: ""
   artifact_name:
     description: 'Name of the output artifact'
-    default: 'OpenAPI specifications'
+    default: 'OpenAPI descriptions'
+  output_dir:
+    description: 'Output directory of AutoOAS'
+    default: 'autooas'
 
 runs:
   using: "composite"
   steps:
-      - name: 'Run OAS-gen tool on MVN src folder'
-        run: docker run -v ${{inputs.mvn_src_path}}:/project alexx882/auto-oas:1.0 /project /project/autooas/oas
+      - name: 'Run AutoOAS on source_dir'
+        run: docker run -v ${{inputs.source_dir}}:/project alexx882/auto-oas:1.0 /project /project/${inputs.output_dir}/oas
         shell: bash
       - name: 'Upload artifact'
         uses: actions/upload-artifact@v4
         with:
           name: '${{inputs.artifact_name}}'
-          path: ${{inputs.mvn_src_path}}/autooas/oas*
+          path: ${{inputs.source_dir}}/${inputs.output_dir}/oas*
