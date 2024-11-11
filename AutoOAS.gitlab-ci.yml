@@ -1,6 +1,6 @@
 spec:
   inputs:
-    mvn_src_dir:
+    source_dir:
     ref:
       type: string 
       default: main
@@ -23,7 +23,7 @@ stages:
   script: 
     - git fetch
     - git checkout $[[inputs.ref]]
-    - java -jar /app/auto-oas.jar $[[ inputs.mvn_src_dir ]] autooas-$[[inputs.ref]]/oas
+    - java -jar /app/auto-oas.jar $[[ inputs.source_dir ]] autooas-$[[inputs.ref]]/oas
   artifacts:
     name: "$[[inputs.ref]]_oas"
     paths:
