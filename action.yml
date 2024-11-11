@@ -17,10 +17,10 @@ runs:
   using: "composite"
   steps:
       - name: 'Run AutoOAS on source_dir'
-        run: docker run -v ${{inputs.source_dir}}:/project alexx882/auto-oas:1.0 /project /project/${inputs.output_dir}/oas
+        run: docker run -v ${{inputs.source_dir}}:/project alexx882/auto-oas:1.0 /project /project/${{inputs.output_dir}}/oas
         shell: bash
       - name: 'Upload artifact'
         uses: actions/upload-artifact@v4
         with:
           name: '${{inputs.artifact_name}}'
-          path: ${{inputs.source_dir}}/${inputs.output_dir}/oas*
+          path: ${{inputs.source_dir}}/${{inputs.output_dir}}/oas*
