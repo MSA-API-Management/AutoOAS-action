@@ -25,7 +25,7 @@ An example project with a configured workflow can be found [here](https://github
 Link the GitLab configuration file in the `.gitlab-ci.yml`:
 ```yaml
 include:
-  - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1/AutoOAS-ci.gitlab-ci.yml'
+  - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1/AutoOAS.gitlab-ci.yml'
     inputs:
       source_dir: '.' # Source directory
 ```
