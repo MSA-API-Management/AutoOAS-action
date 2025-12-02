@@ -1,10 +1,14 @@
 name: 'AutoOAS Action'
-description: 'Generates an OpenAPI specification of a Spring project and uploads the specification as a job artifact'
+description: 'Generates an OpenAPI specification of a Spring or JAX-RS project and uploads the specification as a job artifact'
 
 inputs:
   source_dir:
     description: 'Path to the source directory'
     required: true
+    default: ""
+  rest_api_module_path:
+    description: 'Path to the REST API module (defaults to source_dir if not specified)'
+    required: false
     default: ""
   artifact_name:
     description: 'Name of the output artifact'
@@ -17,10 +21,15 @@ runs:
   using: "composite"
   steps:
       - name: 'Run AutoOAS on source_dir'
-        run: docker run -v ${{inputs.source_dir}}:/project alexx882/auto-oas:1.0 /project /project/${{inputs.output_dir}}/oas
+        run: |
+          if [ -z "${{inputs.rest_api_module_path}}" ]; then
+            docker run -v ${{inputs.source_dir}}:/project alexx882/auto-oas:1.2 /project /project/${{inputs.output_dir}}/oas
+          else
+            docker run -v ${{inputs.source_dir}}:/project alexx882/auto-oas:1.2 /project ${{inputs.rest_api_module_path}} /project/${{inputs.output_dir}}/oas
+          fi
         shell: bash
       - name: 'Upload artifact'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: '${{inputs.artifact_name}}'
           path: ${{inputs.source_dir}}/${{inputs.output_dir}}/oas*

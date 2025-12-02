@@ -1,6 +1,10 @@
 spec:
   inputs:
     source_dir:
+      type: string
+    rest_api_module_path:
+      type: string
+      default: ""
     ref:
       type: string 
       default: main
@@ -8,14 +12,12 @@ spec:
       type: string
       default: auto-oas
 ---
-
 stages:
   - auto-oas
-
 "auto-oas-$[[inputs.job_name]]":
   stage: auto-oas
   image: 
-    name: alexx882/auto-oas:1.0
+    name: alexx882/auto-oas:1.2
     entrypoint: [""]
   before_script:
     - apt update
@@ -23,7 +25,12 @@ stages:
   script: 
     - git fetch
     - git checkout $[[inputs.ref]]
-    - java -jar /app/auto-oas.jar $[[ inputs.source_dir ]] autooas-$[[inputs.ref]]/oas
+    - |
+      if [ -z "$[[inputs.rest_api_module_path]]" ]; then
+        java -jar /app/auto-oas.jar $[[inputs.source_dir]] autooas-$[[inputs.ref]]/oas
+      else
+        java -jar /app/auto-oas.jar $[[inputs.source_dir]] $[[inputs.rest_api_module_path]] autooas-$[[inputs.ref]]/oas
+      fi
   artifacts:
     name: "$[[inputs.ref]]_oas"
     paths:

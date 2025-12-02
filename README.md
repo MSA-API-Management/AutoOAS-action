@@ -1,5 +1,5 @@
 # AutoOAS
-[AutoOAS](https://arxiv.org/abs/2410.23873) is a static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot source code. The approach is available as a [Docker image](https://hub.docker.com/repository/docker/alexx882/auto-oas/general).
+[AutoOAS](https://arxiv.org/abs/2410.23873) is a static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot and JAX-RS source code. The approach is available as a [Docker image](https://hub.docker.com/repository/docker/alexx882/auto-oas/general).
 
 If you use AutoOAS for research purposes please cite our preprint:
 ```bibtex
@@ -17,10 +17,12 @@ If you use AutoOAS for research purposes please cite our preprint:
 ## GitHub Action usage
 The GitHub Action requires the following inputs:
 ```yaml
-  - uses: MSA-API-Management/AutoOAS-action@v1
+  - uses: MSA-API-Management/AutoOAS-action@v1.1
     with:
       # Path to the source directory
       source_dir:
+      # Path to the REST API module (defaults to source_dir if not specified)
+      rest_api_module_path:
       # Name of the artifact that will be uploaded to GitHub, default: 'OpenAPI descriptions'
       artifact_name:
       # Output directory of AutoOAS, default: autooas
@@ -38,7 +40,7 @@ An example project with a configured workflow can be found [here](https://github
 Link the GitLab configuration file in the `.gitlab-ci.yml`:
 ```yaml
 include:
-  - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1/AutoOAS.gitlab-ci.yml'
+  - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1.1/AutoOAS.gitlab-ci.yml'
     inputs:
       source_dir: '.' # Source directory
 ```
