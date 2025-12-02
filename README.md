@@ -17,7 +17,7 @@ If you use AutoOAS for research purposes please cite our preprint:
 ## GitHub Action usage
 The GitHub Action requires the following inputs:
 ```yaml
-  - uses: MSA-API-Management/AutoOAS-action@v1.1
+  - uses: MSA-API-Management/AutoOAS-action@v1.2
     with:
       # Path to the source directory
       source_dir:
@@ -40,7 +40,7 @@ An example project with a configured workflow can be found [here](https://github
 Link the GitLab configuration file in the `.gitlab-ci.yml`:
 ```yaml
 include:
-  - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1.1/AutoOAS.gitlab-ci.yml'
+  - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1.2/AutoOAS.gitlab-ci.yml'
     inputs:
       source_dir: '.' # Source directory
 ```
