@@ -1,5 +1,5 @@
 # AutoOAS
-[AutoOAS](https://arxiv.org/abs/2410.23873) is a static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot and JAX-RS source code. The approach is available as a [Docker image](https://hub.docker.com/repository/docker/alexx882/auto-oas/general).
+[AutoOAS](https://arxiv.org/abs/2410.23873) is a static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot and JAX-RS source code. The approach is available as a [Docker image](https://hub.docker.com/r/alexx882/auto-oas).
 
 If you use AutoOAS for research purposes please cite our preprint:
 ```bibtex
@@ -30,7 +30,7 @@ The GitHub Action requires the following inputs:
 ```
 The output of the action is stored in the summary of the triggered workflow as an artifact.
 
-### Pitfalls
+### Prerequisite
 The AutoOAS action requires the project's source to be loaded inside the runner at an earlier step. For this, the [checkout](https://github.com/actions/checkout) action can be used.
 
 ### Example
