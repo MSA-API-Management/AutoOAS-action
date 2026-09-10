@@ -19,14 +19,14 @@ The GitHub Action requires the following inputs:
 ```yaml
   - uses: MSA-API-Management/AutoOAS-action@v1.2
     with:
-      # Path to the source directory
       source_dir:
-      # Path to the REST API module (defaults to source_dir if not specified)
+      # Path to the source directory
       rest_api_module_path:
-      # Name of the artifact that will be uploaded to GitHub, default: 'OpenAPI descriptions'
+      # Path to the REST API module, default: <source_dir>
       artifact_name:
-      # Output directory of AutoOAS, default: autooas
+      # Name of the artifact that will be uploaded to GitHub, default: 'OpenAPI descriptions'
       output_dir:
+      # Output directory of AutoOAS, default: 'autooas'
 ```
 The output of the action is stored in the summary of the triggered workflow as an artifact.
 
