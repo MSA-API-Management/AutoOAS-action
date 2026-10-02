@@ -1,18 +1,5 @@
-# AutoOAS
-[AutoOAS](https://arxiv.org/abs/2410.23873) is a static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot and JAX-RS source code. The approach is available as a [Docker image](https://hub.docker.com/r/alexx882/auto-oas).
-
-If you use AutoOAS for research purposes please cite our preprint:
-```bibtex
-@misc{lercher2024generatingaccurateopenapidescriptions,
-      title={Generating Accurate OpenAPI Descriptions from Java Source Code}, 
-      author={Alexander Lercher and Christian Macho and Clemens Bauer and Martin Pinzger},
-      year={2024},
-      eprint={2410.23873},
-      archivePrefix={arXiv},
-      primaryClass={cs.SE},
-      url={https://arxiv.org/abs/2410.23873}, 
-}
-```
+# AutoOAS CI
+[AutoOAS](https://github.com/MSA-API-Management/AutoOAS) is a static analysis approach for generating accurate and detailed OpenAPI descriptions from Java Spring Boot and JAX-RS source code. The approach is available as a [Docker image](https://hub.docker.com/r/alexx882/auto-oas).
 
 ## GitHub Action usage
 The GitHub Action requires the following inputs:
@@ -43,4 +30,24 @@ include:
   - remote: 'https://raw.githubusercontent.com/MSA-API-Management/AutoOAS-action/refs/tags/v1.2/AutoOAS.gitlab-ci.yml'
     inputs:
       source_dir: '.' # Source directory
+```
+
+
+## Academic Use
+If you use this project in your academic work, please cite the following paper:
+
+> A. Lercher, D. Jamnig, C. Macho, C. Bauer, and M. Pinzger, “Generating accurate OpenAPI descriptions from Java source code,” Journal of Systems and Software, vol. 244, p. 113122, 2027.
+
+```bibtex
+@article{LERCHER2027113122,
+  title = {Generating accurate OpenAPI descriptions from Java source code},
+  journal = {Journal of Systems and Software},
+  volume = {244},
+  pages = {113122},
+  year = {2027},
+  issn = {0164-1212},
+  doi = {https://doi.org/10.1016/j.jss.2026.113122},
+  url = {https://www.sciencedirect.com/science/article/pii/S0164121226003559},
+  author = {Alexander Lercher and David Jamnig and Christian Macho and Clemens Bauer and Martin Pinzger}
+  }
 ```
